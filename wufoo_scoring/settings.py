@@ -7,11 +7,14 @@ https://docs.djangoproject.com/en/1.6/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/1.6/ref/settings/
 """
+ADMINS = (
+     ('Nadine Whitfield', 'whitfld64@hotmail.com'),
+)
+MANAGERS = ADMINS
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 import os
 BASE_DIR = os.path.dirname(os.path.dirname(__file__))
-
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.6/howto/deployment/checklist/
@@ -37,6 +40,12 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'south',
+    'gunicorn',
+    'wufoo_scoring.apps.wufoo_responder',
+    #'wufoo_scoring.apps.wufoo_responder.Entry',
+    #'wufoo_scoring.apps.wufoo_responder.Item',
+  
+    #   'wufoo_scoring.apps.wufoo_reporter',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -55,6 +64,7 @@ WSGI_APPLICATION = 'wufoo_scoring.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/1.6/ref/settings/#databases
+# TODO: change these settings before deploying to prod
 
 DATABASES = {
     'default': {
@@ -109,3 +119,49 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'static'),
 )
+
+STATICFILES_FINDERS = (
+    'django.contrib.staticfiles.finders.FileSystemFinder',
+    'django.contrib.staticfiles.finders.AppDirectoriesFinder',
+#    'django.contrib.staticfiles.finders.DefaultStorageFinder',
+)
+
+from locals import email_user, email_password
+# todo: update smtp server host 
+EMAIL_HOST = 'smtp.sendgrid.net'
+EMAIL_HOST_USER = email_user
+EMAIL_HOST_PASSWORD = email_password
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+
+TEMPLATE_DIRS = (
+    # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
+    # Always use forward slashes, even on Windows.
+    # Don't forget to use absolute paths, not relative paths.
+    #'/Users/rgraham/whitetail/wufoo-quizzes/templates',
+    
+    os.path.join(BASE_DIR, 'wufoo_scoring/templates'),
+)
+
+# A sample logging configuration. The only tangible logging
+# performed by this configuration is to send an email to
+# the site admins on every HTTP 500 error.
+# See http://docs.djangoproject.com/en/dev/topics/logging for
+# more details on how to customize your logging configuration.
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'handlers': {
+        'mail_admins': {
+            'level': 'ERROR',
+            'class': 'django.utils.log.AdminEmailHandler'
+        }
+    },
+    'loggers': {
+        'django.request': {
+            'handlers': ['mail_admins'],
+            'level': 'ERROR',
+            'propagate': True,
+        },
+    }
+}
