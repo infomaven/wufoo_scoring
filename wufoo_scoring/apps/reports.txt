@@ -1,0 +1,12 @@
+"""
+wufoo_reporter.store_reports.py
+Purpose: POSTS aggregate data back to forms hosted on wufoo.com 
+Forms are optimized for reporting
+Author: nwhitfield
+Date: 6 Mar 2014
+approved format: https://{subdomain}.wufoo.com/api/v3/forms/{formIdentifier}/entries.{xml|json}
+{subdomain} = neighborhoodsonic
+{formIdentifier} = s1m6or2u1rkli5v 
+"""
+
+

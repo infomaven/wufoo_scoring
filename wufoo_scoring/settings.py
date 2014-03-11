@@ -42,8 +42,8 @@ INSTALLED_APPS = (
     'south',
     'gunicorn',
     'wufoo_scoring.apps.wufoo_responder',
-    #'wufoo_scoring.apps.wufoo_responder.Entry',
-    #'wufoo_scoring.apps.wufoo_responder.Item',
+    'wufoo_scoring.apps.wufoo_responder.Entry',
+    'wufoo_scoring.apps.wufoo_responder.Item',
   
     #   'wufoo_scoring.apps.wufoo_reporter',
 )
@@ -65,6 +65,7 @@ WSGI_APPLICATION = 'wufoo_scoring.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/1.6/ref/settings/#databases
 # TODO: change these settings before deploying to prod
+# superuser: wufoo/ passwd: reports
 
 DATABASES = {
     'default': {

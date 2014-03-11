@@ -1,0 +1,23 @@
+Production Testing Quiz 
+1. Production testing = live testing.: False
+2. Production testing is too risky.: False
+3. Production testing is not about breaking the site; performance testing is about baseline testing, spikes, endurance and diagnostic testing.: True
+4. It takes too long; we're lucky to have time for QA testing.: False
+5. The technology to do production performance testing has changed so you now have the expertise in house.: True
+6. Production testing isn't necessary if we do thorough testing in the lab.: False
+7. Management buy-in for production testing may be easier than you think.: True
+8. It costs too much.: False
+
+Decision Criteria For Your App Testing Platform
+scale: 5
+questions: 10
+
+Week 3
+Question m1: 1
+Question m2: 2
+Question m3: 3
+Question m4: 4
+Question m5: 5
+
+Week 1
+All employees clocked in:

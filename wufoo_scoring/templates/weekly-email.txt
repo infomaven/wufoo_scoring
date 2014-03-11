@@ -1,0 +1,12 @@
+Hello,
+
+This is your weekly digest of who is performing audits using the Wufoo online system. A  CSV of the data is attached to this email.
+
+You had {{ entry_count }} audits completed this week. Here is a breakdown:
+
+{% for entry in entries %}
+	{{ entry.Field113 }} {{ entry.Field114 }} ({{ entry.Field112 }}) scored a {{ entry.Grade }}.
+{% endfor %}
+
+Thanks,
+Neighborhood Sonic Online Audit System
