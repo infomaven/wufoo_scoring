@@ -1,4 +1,4 @@
-Django==1.6.2
+django>=1.11.18
 South==0.8.4
 dj-database-url==0.2.2
 dj-static==0.0.5
